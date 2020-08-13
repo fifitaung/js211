@@ -10,12 +10,33 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-const pigLatin = (word) => {
-
-  // Your code here
-
+const pigLatin = (word)=>{
+  if (word.match(/ /)) {
+    word = word.toLowerCase().trim();
+    let letters = word.split(' ');
+    let result = '';
+    for (let i = 0; i < letters.length; i++) {
+      if (i > 0) {
+        result += ' ';
+      }
+      result += translate(letters[i]);
+    }
+    return result;
+  }
+  return translate(word);
 }
+const translate = (word)=> {
+  let i = word.search(/[aeiou]/);
+  if (!i) {
+    return word + 'yay';
+  }
+  if (word.match(/qu/)) {
+    if (word.indexOf('qu') < i) { 
+      i++;
+    }
+  }
+  return word.substr(i) + word.substr(0, i) + 'ay';
+};
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -55,10 +76,6 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
-
-
-
-
 
 
 // **********
