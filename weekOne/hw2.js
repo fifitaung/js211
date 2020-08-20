@@ -78,9 +78,37 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
+    it('Should notify if user attemps to play with out correct entry', () => {
+      assert.equal(rockPaperScissors('', ' '), "Not a correct entry!");
+    });
   });
-} else {
 
+} else {
+  // always returns ask the user for another input
+  getPrompt();
+
+}
+
+if (typeof describe === 'function') {
+
+  describe('UNIT TEST()', () => {
+    it('Should notify if user attemps to play without correct entry', () => {
+      assert.equal(rockPaperScissors('', ' '), "Not a correct entry!");
+    });
+    it('Should not allow user to play more then once on a turn', () => {
+      assert.equal(rockPaperScissors('', ' '), "Not your next players turn!");
+    });
+    it('should handle bad hand ', () => {
+      assert.equal(rockPaperScissors('rOcK', ' boom '), "Hand two wins!");
+      assert.equal(rockPaperScissors('Paper', 'water'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rock ', 'fire'), "It's a tie!");
+    });
+    it('Should notify if user attemps to play with out correct entry', () => {
+      assert.equal(rockPaperScissors('', ' '), "Not a correct entry!");
+    });
+  });
+
+} else {
   // always returns ask the user for another input
   getPrompt();
 
