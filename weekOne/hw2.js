@@ -103,8 +103,10 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('Paper', 'water'), "Hand one wins!");
       assert.equal(rockPaperScissors('rock ', 'fire'), "It's a tie!");
     });
-    it('Should notify if user attemps to play with out correct entry', () => {
-      assert.equal(rockPaperScissors('', ' '), "Not a correct entry!");
+    it('Should notify if user has any maching words   ', () => {
+      assert.equal(rockPaperScissors('stone', 'stone'), "You both win!");
+      assert.equal(rockPaperScissors('star', 'star'), "You both win!");
+      assert.equal(rockPaperScissors('sun ', 'sun'), "You both win!");
     });
   });
 
