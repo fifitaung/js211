@@ -1,3 +1,4 @@
+'use stric'
 // array of cars that consist of a string of cars
 let cars = ["Ford","Honda", "Mustang", "Chevy"];
 console.log("Cars array: ");
